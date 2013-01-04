@@ -4,7 +4,6 @@ runtime: python27
 env:
   DJANGO_SETTINGS_MODULE: settings
   PROD_MODE: true
-  STACKATO: true
   PIP_REQUIREMENTS_FILE: requirements-stackato.txt
 requirements:
   ubuntu:
@@ -19,6 +18,8 @@ services:
   ${name}-db: postgresql
   ${name}-cache: memcached
   ${name}-redis: redis
+processes:
+    web: $STACKATO_UWSGI --static-map /static=$HOME/static_root
 hooks:
   post-staging:
     - python manage.py syncdb --noinput
