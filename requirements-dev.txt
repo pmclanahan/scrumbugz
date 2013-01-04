@@ -3,3 +3,4 @@
 
 mock==0.8.0
 Sphinx
+nose-progressive==1.3
