@@ -12,19 +12,33 @@ requirements:
     - psycopg2
     - redis
     - hiredis
+    - pytz==2012d
+    - South==0.7.5
+    - Jinja2==2.6
+    - celery==3.0.9
+    - python-dateutil==1.5
+    - django-storages==1.1.4
+    - boto==2.4.1
+    - raven==1.8.4
+    - jingo==0.4
+    - django-nose==1.1
+    - django-cronjobs==0.2.3
+    - django-model-utils==1.1.0
+    - dj-database-url
 min_version:
   client: 1.4.3
 services:
   ${name}-db: postgresql
-  ${name}-cache: memcached
+  ${name}-memcache: memcached
   ${name}-redis: redis
+  ${name}-cache: filesystem
 processes:
     web: $STACKATO_UWSGI --static-map /static=$HOME/static_root
 hooks:
   post-staging:
     - python manage.py syncdb --noinput
-    - python manage.py migrate
-    - python manage.py collectstatic
+    - python manage.py migrate --noinput
+    - python manage.py collectstatic --noinput
 ignores:
   - "*.pyc"
   - "*.pyo"
@@ -35,7 +49,13 @@ ignores:
   - "settings/local.py"
   - ".codeintel"
   - "*.sublime*"
-  - ".coverage"
+  - ".coverage*"
   - "_coverage/*"
   - ".noseids"
   - "celerybeat-schedule"
+  - ".DS_Store"
+  - ".git"
+  - ".idea"
+  - ".travis.yml"
+  - "Procfile"
+  - ".jshint*"

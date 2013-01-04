@@ -4,8 +4,8 @@ Django==1.4.2
 Unipath
 django-floppyforms
 python-dateutil==1.5
-simplejson==2.6.0
-django-jsonfield==0.8.10
+simplejson==2.6.2
+django-jsonfield==0.8.12
 django-storages==1.1.4
 boto==2.3.0
 raven==1.8.1
@@ -22,4 +22,4 @@ django-model-utils==1.1.0
 celery==3.0.9
 django-celery==3.0.9
 django-browserid==0.7.1
-requests==0.14.1
+requests==0.14.2

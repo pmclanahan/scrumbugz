@@ -1,6 +1,16 @@
+--index-url=http://simple.crate.io/
 # Stackato Requirements
--r requirements-base.txt
 
+Django==1.4.3
 pylibmc==1.2.3
 django-pylibmc
-dj-database-url==0.2.1
+django-floppyforms
+simplejson==2.6.2
+django-jsonfield==0.8.12
+git+https://github.com/auzigog/jinja-bootstrap.git@v0.3.0
+Markdown==2.2.0
+nose==1.2.1
+django-celery==3.0.9
+django-browserid==0.7.1
+requests==0.14.2
+Unipath
