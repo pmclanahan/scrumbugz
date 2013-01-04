@@ -7,6 +7,8 @@ env:
   STACKATO: true
   PIP_REQUIREMENTS_FILE: requirements-stackato.txt
 requirements:
+  ubuntu:
+    - libmemcached-dev
   pypm:
     - psycopg2
     - redis
